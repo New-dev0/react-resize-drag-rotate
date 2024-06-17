@@ -20,6 +20,7 @@ export default class Rect extends PureComponent {
     zoomable: PropTypes.string,
     rotatable: PropTypes.bool,
     isDraggable: PropTypes.bool,
+    showCursor: PropTypes.bool,
     onResizeStart: PropTypes.func,
     onResize: PropTypes.func,
     onResizeEnd: PropTypes.func,
@@ -196,7 +197,8 @@ export default class Rect extends PureComponent {
       className,
       color,
       children,
-      isDraggable
+      isDraggable,
+      showCursor
     } = this.props
     const style = {
       width: Math.abs(width),
@@ -220,7 +222,7 @@ export default class Rect extends PureComponent {
       >
         { children}
         {
-          rotatable &&
+          showCursor && rotatable &&
           <div className="rotate" onMouseDown={this.startRotate} onTouchStart={this.startRotate}>
             <svg viewBox="0 0 2048 2048" height="24" width="24" >
               <path d="M 1019 1579 q -115 0 -216 -43 q -101 -44 -176 -119 q -76 -76 -119 -177 q -44 -101 -44 -216 q 0 -115 44 -216 q 43 -101 119 -176 q 75 -76 176 -119 q 101 -44 216 -44 q 114 0 215 44 q 101 43 177 119 q 75 75 119 176 q 43 101 43 216 q -1 6 -1 11 v 16 l 78 -78 l 106 107 l -311 311 l -311 -311 l 107 -107 l 148 148 q 7 -28 11 -51 q 3 -24 3 -46 q 0 -79 -30 -149 q -31 -70 -83 -122 q -52 -53 -122 -83 q -70 -30 -149 -30 q -80 0 -149 30 q -70 30 -122 83 q -53 52 -83 122 q -30 70 -30 149 q 0 80 30 150 q 30 69 83 122 q 52 52 122 82 q 69 30 149 30 q 26 -1 53 -4 q 26 -3 52 -11 l 25 -8 l 129 130 l -60 24 q -50 20 -99 30 q -50 10 -100 10 z" className="SVGShapeRotateHandle" />
@@ -229,7 +231,7 @@ export default class Rect extends PureComponent {
         }
 
         {
-          direction.map(d => {
+       showCursor && direction.map(d => {
             const cursor = `${getCursor(rotateAngle + parentRotateAngle, d)}-resize`
             return (
               <div key={d} style={{ cursor }} className={`${zoomableMap[ d ]} resizable-handler`} onMouseDown={(e) => this.startResize(e, cursor)} onTouchStart={(e) => this.startResize(e, cursor)} />
@@ -238,7 +240,7 @@ export default class Rect extends PureComponent {
         }
 
         {
-          direction.map(d => {
+   showCursor && direction.map(d => {
             return (
               <div key={d} className={`${zoomableMap[ d ]} square`} />
             )
