@@ -9,7 +9,7 @@ This is a fork of [react-resizable-rotatable-draggable-touch](https://www.npmjs.
 ### Installation
 
 ```bash
-npm install --save react-resize-drag-rotate`
+npm install --save react-rdr`
 ```
 
 Then you will need to install peer dependency
@@ -22,7 +22,7 @@ npm install --save styled-components
 
 ```jsx
 import React, { Component } from 'react'
-import ResizableRect from 'react-resize-drag-rotate'
+import ResizableRect from 'react-rdr'
 
 class App extends Component {
   constructor() {
