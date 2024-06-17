@@ -1,10 +1,10 @@
 {
-  "name": "@visualbi/react-resize-drag-rotate",
+  "name": "react-resize-drag-rotate",
   "version": "0.0.7",
   "description": "A rectangle react component which can be resized and rotated. Works on touch",
   "author": "raghu3130",
   "license": "MIT",
-  "repository": "github:Raghu3130/react-resize-drag-rotate",
+  "repository": "github:New-dev0/react-resize-drag-rotate",
   "keywords": [
     "react",
     "rectangle",
